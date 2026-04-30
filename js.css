@@ -1,0 +1,247 @@
+* {
+  font-family: cursive;
+}
+
+body {
+  display: flex;
+  justify-content: space-around;
+  padding: 40px 0;
+}
+
+.notes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav button {
+  padding: 10px;
+  margin: 5px;
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 50px;
+  color: black;
+  font-size: 15px;
+}
+
+.nav button:hover {
+  padding: 10px;
+  margin: 5px;
+  border: 2px solid black;
+  background-color: black;
+  border-radius: 50px;
+  color: white;
+  font-size: 15px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 300px;
+  overflow-y: scroll;
+  border: none;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 20px;
+  box-shadow: 0px 10px 20px rgb(187, 186, 186);
+}
+
+.main .card {
+  margin: 20px;
+  padding: 20px;
+  border: 2px solid black;
+  border-radius: 10px;
+  box-shadow: 0px 10px 20px rgb(187, 186, 186);
+}
+
+.main .black {
+  margin: 20px;
+  padding: 20px;
+  border: 2px solid black;
+  border-radius: 10px;
+  box-shadow: 0px 10px 20px rgb(187, 186, 186);
+}
+
+.main .violet {
+  margin: 20px;
+  padding: 20px;
+  border: 2px solid black;
+  border-radius: 10px;
+  box-shadow: 0px 10px 20px rgb(187, 186, 186);
+}
+
+.main .orange {
+  margin: 20px;
+  padding: 20px;
+  border: 2px solid black;
+  border-radius: 10px;
+  box-shadow: 0px 10px 20px rgb(187, 186, 186);
+}
+
+.main .blue {
+  margin: 20px;
+  padding: 20px;
+  border: 2px solid black;
+  border-radius: 10px;
+  box-shadow: 0px 10px 20px rgb(187, 186, 186);
+}
+
+.card p {
+  display: flex;
+  justify-content: space-between;
+  color: gray;
+}
+
+.card button {
+  padding: 10px;
+  margin: 5px;
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 50px;
+  color: black;
+  font-size: 15px;
+}
+
+.card button:hover {
+  padding: 10px;
+  margin: 5px;
+  border: 2px solid black;
+  background-color: black;
+  border-radius: 50px;
+  color: white;
+  font-size: 15px;
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter button {
+  padding: 10px;
+  margin: 5px;
+  font-size: 15px;
+}
+
+.filter .black {
+  border: 2px solid black;
+  background-color: white;
+  color: gray;
+  border-radius: 17px;
+}
+
+.filter .black:hover {
+  border: 2px solid gray;
+  background-color: black;
+  color: white;
+  border-radius: 17px;
+  transition: 0.3s;
+}
+
+.filter .violet {
+  border: 2px solid rgb(205, 8, 205);
+  background-color: white;
+  color: violet;
+  border-radius: 17px;
+}
+
+.filter .violet:hover {
+  border: 2px solid violet;
+  background-color: rgb(205, 8, 205);
+  color: white;
+  border-radius: 17px;
+  transition: 0.3s;
+}
+
+.filter .orange {
+  border: 2px solid rgb(221, 148, 14);
+  background-color: white;
+  color: orange;
+  border-radius: 17px;
+}
+
+.filter .orange:hover {
+  border: 2px solid orange;
+  background-color: rgb(221, 148, 14);
+  color: white;
+  border-radius: 17px;
+  transition: 0.3s;
+}
+
+.filter .blue {
+  border: 2px solid rgb(21, 21, 216);
+  background-color: white;
+  color: blue;
+  border-radius: 17px;
+}
+
+.filter .blue:hover {
+  border: 2px solid blue;
+  background-color: rgb(21, 21, 216);
+  color: white;
+  border-radius: 17px;
+  transition: 0.3s;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 400px;
+  border: 2px solid gray;
+  padding: 10px;
+  border-radius: 20px;
+  display: none;
+}
+
+form input {
+  padding: 10px;
+  margin: 5px;
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 50px;
+  color: black;
+  font-size: 10px;
+}
+
+form p {
+  padding-left: 10px;
+  margin: 5px;
+  font-size: 20px;
+}
+
+form button {
+  padding: 10px;
+  margin: 5px;
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 50px;
+  color: black;
+  font-size: 15px;
+}
+
+form button:hover {
+  padding: 10px;
+  margin: 5px;
+  border: 2px solid black;
+  background-color: black;
+  border-radius: 50px;
+  color: white;
+  font-size: 15px;
+}
+
+.category {
+  padding: 10px;
+  margin: 5px;
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 50px;
+  color: black;
+  font-size: 10px;
+}
