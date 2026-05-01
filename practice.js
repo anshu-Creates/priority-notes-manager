@@ -20,17 +20,6 @@ add.addEventListener("click", hideNote);
 
 close.addEventListener("click", hideForm);
 
-/*<div class="card">
-        <h1>Name</h1>
-        <p>Hometown : <span class="hometown">Hometown</span></p>
-        <p>Purpose : <span>Purpose</span></p>
-        <div>
-          <button class="call">Call</button>
-          <button class="msg">Message</button>
-        </div>
-      </div>
-      */
-
 form.addEventListener("submit", function(data){
   data.preventDefault();
   naam = data.target[0].value;
@@ -41,12 +30,12 @@ form.addEventListener("submit", function(data){
   category = data.target[5].value;
 
   let div = document.createElement("div");
-  div.setAttribute("class", "card");
+  div.setAttribute("class", category);
   document.body.querySelector(".main").prepend(div);
 
   let h1 = document.createElement("h1");
   h1.innerText = naam;
-  document.body.querySelector(".card").append(h1);
+  document.body.querySelector(category).append(h1);
 
 
   let p1 = document.createElement("p");
