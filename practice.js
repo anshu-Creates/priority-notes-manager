@@ -3,6 +3,63 @@ let add = document.querySelector(".add");
 let form = document.querySelector("form");
 let close = document.querySelector(".close");
 
+let norush = document.querySelector(".norush");
+let important = document.querySelector(".important");
+let emergency = document.querySelector(".emergency");
+let urgent = document.querySelector(".urgent");
+
+function black() {
+  document.querySelector(".violet").style.display = "none";
+  document.querySelector(".blue").style.display = "none";
+  document.querySelector(".orange").style.display = "none";
+  if (!document.querySelector(".black")) {
+    clear();
+    let h1 = document.createElement("h1");
+    h1.innerText = "Nothing to See...";
+    document.body.querySelector(".main").prepend(h1);
+  }
+}
+
+function violet() {
+  document.querySelector(".black").style.display = "none";
+  document.querySelector(".blue").style.display = "none";
+  document.querySelector(".orange").style.display = "none";
+  if (!document.querySelector(".violet")) {
+    clear();
+    let h1 = document.createElement("h1");
+    h1.innerText = "Nothing to See...";
+  }
+}
+
+function orange() {
+  document.querySelector(".violet").style.display = "none";
+  document.querySelector(".blue").style.display = "none";
+  document.querySelector(".black").style.display = "none";
+  if (!document.querySelector(".orange")) {
+    clear();
+    let h1 = document.createElement("h1");
+    h1.innerText = "Nothing to See...";
+    document.body.querySelector(".main").prepend(h1);
+  }
+}
+
+function blue() {
+  document.querySelector(".violet").style.display = "none";
+  document.querySelector(".black").style.display = "none";
+  document.querySelector(".orange").style.display = "none";
+  if (!document.querySelector(".blue")) {
+    clear();
+    let h1 = document.createElement("h1");
+    h1.innerText = "Nothing to See...";
+    document.body.querySelector(".main").prepend(h1);
+  }
+}
+
+norush.addEventListener("click", black);
+emergency.addEventListener("click", orange);
+urgent.addEventListener("click", blue);
+important.addEventListener("click", violet);
+
 function hideNote() {
   form.style.display = "flex";
   main.style.display = "none";
@@ -58,6 +115,25 @@ function createCard() {
   btn2.classList.add("button");
   btn2.innerText = "Email";
   document.body.querySelector(".card").querySelector(".div1").append(btn2);
+
+  let btn3 = document.createElement("button");
+  btn3.setAttribute("class", "delete");
+  btn3.classList.add("button");
+  btn3.innerText = "Delete";
+  document.body.querySelector(".card").querySelector(".div1").append(btn3);
+
+  console.log("Notes Created..");
+}
+
+function clear() {
+  if (document.body.querySelector(".init")) {
+    document.body
+      .querySelector(".main")
+      .removeChild(document.body.querySelector(".init"));
+    console.log("Cleared..");
+  } else {
+    console.log("Alreday Cleared..");
+  }
 }
 
 form.addEventListener("submit", function (data) {
@@ -69,8 +145,8 @@ form.addEventListener("submit", function (data) {
   email = data.target[4].value;
   category = data.target[5].value;
 
-  createCard();
   hideForm();
-  console.log("notes created");
+  createCard();
+  clear();
   form.reset();
 });
