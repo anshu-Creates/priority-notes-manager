@@ -2,63 +2,11 @@ let main = document.querySelector(".notes");
 let add = document.querySelector(".add");
 let form = document.querySelector("form");
 let close = document.querySelector(".close");
-
+let init = document.querySelector(".init");
 let norush = document.querySelector(".norush");
 let important = document.querySelector(".important");
 let emergency = document.querySelector(".emergency");
 let urgent = document.querySelector(".urgent");
-
-function black() {
-  document.querySelector(".violet").style.display = "none";
-  document.querySelector(".blue").style.display = "none";
-  document.querySelector(".orange").style.display = "none";
-  if (!document.querySelector(".black")) {
-    clear();
-    let h1 = document.createElement("h1");
-    h1.innerText = "Nothing to See...";
-    document.body.querySelector(".main").prepend(h1);
-  }
-}
-
-function violet() {
-  document.querySelector(".black").style.display = "none";
-  document.querySelector(".blue").style.display = "none";
-  document.querySelector(".orange").style.display = "none";
-  if (!document.querySelector(".violet")) {
-    clear();
-    let h1 = document.createElement("h1");
-    h1.innerText = "Nothing to See...";
-  }
-}
-
-function orange() {
-  document.querySelector(".violet").style.display = "none";
-  document.querySelector(".blue").style.display = "none";
-  document.querySelector(".black").style.display = "none";
-  if (!document.querySelector(".orange")) {
-    clear();
-    let h1 = document.createElement("h1");
-    h1.innerText = "Nothing to See...";
-    document.body.querySelector(".main").prepend(h1);
-  }
-}
-
-function blue() {
-  document.querySelector(".violet").style.display = "none";
-  document.querySelector(".black").style.display = "none";
-  document.querySelector(".orange").style.display = "none";
-  if (!document.querySelector(".blue")) {
-    clear();
-    let h1 = document.createElement("h1");
-    h1.innerText = "Nothing to See...";
-    document.body.querySelector(".main").prepend(h1);
-  }
-}
-
-norush.addEventListener("click", black);
-emergency.addEventListener("click", orange);
-urgent.addEventListener("click", blue);
-important.addEventListener("click", violet);
 
 function hideNote() {
   form.style.display = "flex";
@@ -69,10 +17,6 @@ function hideForm() {
   form.style.display = "none";
   main.style.display = "flex";
 }
-
-add.addEventListener("click", hideNote);
-
-close.addEventListener("click", hideForm);
 
 function createCard() {
   let div = document.createElement("div");
@@ -126,15 +70,12 @@ function createCard() {
 }
 
 function clear() {
-  if (document.body.querySelector(".init")) {
-    document.body
-      .querySelector(".main")
-      .removeChild(document.body.querySelector(".init"));
-    console.log("Cleared..");
-  } else {
-    console.log("Alreday Cleared..");
-  }
+  init.style.display = "none";
 }
+
+add.addEventListener("click", hideNote);
+
+close.addEventListener("click", hideForm);
 
 form.addEventListener("submit", function (data) {
   data.preventDefault();
@@ -150,3 +91,88 @@ form.addEventListener("submit", function (data) {
   clear();
   form.reset();
 });
+
+function black() {
+  let cards = document.querySelectorAll(".card");
+  let cardsArr = [...cards];
+  if (cardsArr.length != 0) {
+    let cardExists = document.querySelector(".black");
+    if (!cardExists) {
+      init.style.display = "initial";
+    } else {
+      init.style.display = "none";
+    }
+    cards.forEach(function (data) {
+      if (data.className !== "black card") {
+        data.style.display = "none";
+      } else {
+        data.style.display = "initial";
+      }
+    });
+  }
+}
+
+function violet() {
+  let cards = document.querySelectorAll(".card");
+  let cardsArr = [...cards];
+  if (cardsArr.length != 0) {
+    let cardExists = document.querySelector(".violet");
+    if (!cardExists) {
+      init.style.display = "initial";
+    } else {
+      init.style.display = "none";
+    }
+    cards.forEach(function (data) {
+      if (data.className !== "violet card") {
+        data.style.display = "none";
+      } else {
+        data.style.display = "initial";
+      }
+    });
+  }
+}
+
+function blue() {
+  let cards = document.querySelectorAll(".card");
+  let cardsArr = [...cards];
+  if (cardsArr.length != 0) {
+    let cardExists = document.querySelector(".blue");
+    if (!cardExists) {
+      init.style.display = "initial";
+    } else {
+      init.style.display = "none";
+    }
+    cards.forEach(function (data) {
+      if (data.className !== "blue card") {
+        data.style.display = "none";
+      } else {
+        data.style.display = "initial";
+      }
+    });
+  }
+}
+
+function orange() {
+  let cards = document.querySelectorAll(".card");
+  let cardsArr = [...cards];
+  if (cardsArr.length != 0) {
+    let cardExists = document.querySelector(".orange");
+    if (!cardExists) {
+      init.style.display = "initial";
+    } else {
+      init.style.display = "none";
+    }
+    cards.forEach(function (data) {
+      if (data.className !== "orange card") {
+        data.style.display = "none";
+      } else {
+        data.style.display = "initial";
+      }
+    });
+  }
+}
+
+norush.addEventListener("click", black);
+emergency.addEventListener("click", orange);
+urgent.addEventListener("click", blue);
+important.addEventListener("click", violet);
