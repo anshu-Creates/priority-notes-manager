@@ -51,12 +51,14 @@ function createCard() {
   let btn1 = document.createElement("button");
   btn1.setAttribute("class", "call");
   btn1.classList.add("button");
+  btn1.setAttribute("onclick", `window.location.href="tel:${phone}""`);
   btn1.innerText = "Call";
   document.body.querySelector(".card").querySelector(".div1").append(btn1);
 
   let btn2 = document.createElement("button");
   btn2.setAttribute("class", "msg");
   btn2.classList.add("button");
+  btn1.setAttribute("onclick", `window.location.href="mailto:${email}""`);
   btn2.innerText = "Email";
   document.body.querySelector(".card").querySelector(".div1").append(btn2);
 
