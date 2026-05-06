@@ -1,5 +1,6 @@
 let main = document.querySelector(".notes");
 let add = document.querySelector(".add");
+let all = document.querySelector(".all");
 let form = document.querySelector("form");
 let close = document.querySelector(".close");
 let init = document.querySelector(".init");
@@ -17,6 +18,10 @@ function hideForm() {
   form.style.display = "none";
   main.style.display = "flex";
 }
+
+add.addEventListener("click", hideNote);
+
+close.addEventListener("click", hideForm);
 
 function createCard() {
   let div = document.createElement("div");
@@ -75,10 +80,6 @@ function clear() {
   init.style.display = "none";
 }
 
-add.addEventListener("click", hideNote);
-
-close.addEventListener("click", hideForm);
-
 form.addEventListener("submit", function (data) {
   data.preventDefault();
   naam = data.target[0].value;
@@ -93,6 +94,22 @@ form.addEventListener("submit", function (data) {
   clear();
   form.reset();
 });
+
+function showAll() {
+  let cards = document.querySelectorAll(".card");
+  cards.forEach(function (data) {
+    data.style.display = "initial";
+  });
+  if (cards.length == 0) {
+    init.style.display = "initial";
+  } else {
+    init.style.display = "none";
+  }
+  norush.removeAttribute("style");
+  emergency.removeAttribute("style");
+  urgent.removeAttribute("style");
+  important.removeAttribute("style");
+}
 
 function black() {
   let cards = document.querySelectorAll(".card");
@@ -112,6 +129,10 @@ function black() {
       }
     });
   }
+  norush.style.boxShadow = "inset black 0px 0px 10px 0px";
+  emergency.removeAttribute("style");
+  urgent.removeAttribute("style");
+  important.removeAttribute("style");
 }
 
 function violet() {
@@ -132,6 +153,10 @@ function violet() {
       }
     });
   }
+  important.style.boxShadow = "inset violet 0px 0px 10px 0px";
+  emergency.removeAttribute("style");
+  urgent.removeAttribute("style");
+  norush.removeAttribute("style");
 }
 
 function blue() {
@@ -152,6 +177,10 @@ function blue() {
       }
     });
   }
+  urgent.style.boxShadow = "inset blue 0px 0px 10px 0px";
+  emergency.removeAttribute("style");
+  norush.removeAttribute("style");
+  important.removeAttribute("style");
 }
 
 function orange() {
@@ -172,9 +201,15 @@ function orange() {
       }
     });
   }
+  emergency.style.boxShadow = "inset orange 0px 0px 10px 0px";
+  norush.removeAttribute("style");
+  urgent.removeAttribute("style");
+  important.removeAttribute("style");
 }
 
+all.addEventListener("click", showAll);
 norush.addEventListener("click", black);
 emergency.addEventListener("click", orange);
 urgent.addEventListener("click", blue);
 important.addEventListener("click", violet);
+add.addEventListener("click", showAll);
