@@ -71,9 +71,16 @@ function createCard() {
   btn3.setAttribute("class", "delete");
   btn3.classList.add("button");
   btn3.innerText = "Delete";
+  btn3.addEventListener("click", function () {
+    document.body.querySelector(".main").removeChild(div);
+    let cards = document.querySelectorAll(".card");
+    if (cards.length == 0) {
+      init.style.display = "initial";
+    } else {
+      init.style.display = "none";
+    }
+  });
   document.body.querySelector(".card").querySelector(".div1").append(btn3);
-
-  console.log("Notes Created..");
 }
 
 function clear() {
